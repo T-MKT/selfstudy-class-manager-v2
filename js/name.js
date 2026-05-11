@@ -80,5 +80,7 @@ function names_clear(){
 
 (function main()
 {
-	
+	document.getElementById('names-additem').addEventListener('click', names_input);
+	document.getElementById('names-clear').addEventListener('click', names_clear);
+	document.getElementById('names-add-input-value').addEventListener('keydown', names_addPerson);
 })();

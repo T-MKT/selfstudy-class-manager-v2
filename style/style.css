@@ -250,9 +250,11 @@ main {
 }
 #dinner-content > #dinner-title > #dinner-title-text > #dinner-title-big {
   font: 600 calc(8vw + 2vh)/1.25 sans-serif;
+  text-align: center;
 }
 #dinner-content > #dinner-title > #dinner-title-text > #dinner-title-small {
   font: 300 calc(1.8vw + 0.8vh)/1.25 sans-serif;
+  text-align: center;
 }
 #dinner-content > #dinner-time {
   margin: 0 5px;

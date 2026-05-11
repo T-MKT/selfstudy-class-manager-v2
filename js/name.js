@@ -13,7 +13,7 @@ function names_input() {
 
 
 function names_addPerson(event){
-	if (event.keyCode === 13) {
+	if (event.key === 'Enter') {
 		/* get */
 		let input = document.getElementById('names-add-input-value');
 		let personName = input.value;

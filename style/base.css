@@ -17,7 +17,7 @@
   margin: 0;
   box-sizing: border-box;
   border: 0;
-  transition: opcity 0.3s;
+  transition: opacity 0.3s;
   padding: 0;
   line-height: 100%;
 }

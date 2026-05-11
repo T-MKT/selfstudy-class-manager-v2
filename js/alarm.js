@@ -57,33 +57,11 @@ function dinnerCount() {
 } */
 
 
-(function main() {
-	/* var alarmTimeoutId = 0;
-	document.addEventListener('mouseover', () => { // interact to play
-		if (!alarmTimeoutId && class_end - now > 0) {
-			alarmTimeoutId = setTimeout(() => {
-				alarm_wav.play();
-				let dinner = document.getElementById('dinner');
-				dinner.style.display = 'initial';
-				setTimeout(() => {
-					dinner.setAttribute('show', 1);
-					dinner.focus();
-				}, 10);
-			}, class_end - now);
-		}
-	});
-	 */
-	while (!ready) {}
+document.addEventListener('DOMContentLoaded', () => {
 	if (class_end - now >= 0) {
 		document.addEventListener('mouseover', () => {
 			setTimeout(dinnerCount, class_end - now);
 			console.log("alarms set");
 		}, {once: true});
 	}
-
-
-	// setInterval(detectDinner, 0);
-	/* document.addEventListener('mouseover', timeForDinner);
-	console.log("alarm event set"); */
-
-})();
+});

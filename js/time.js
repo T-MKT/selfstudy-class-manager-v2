@@ -1,5 +1,4 @@
 (function main() {
-	Ready();
 	setInterval(function updateTimeInfo() {
 		/* now */
 		let nowtime = document.getElementById('clock-nowtime');

@@ -1,4 +1,3 @@
-var ready = 0;
 var now = new Date();
 var today = now.toLocaleDateString();
 var startList = [
@@ -22,6 +21,5 @@ function updateRange() {
 	}
 };
 updateRange();
-ready = 1;
 console.log("time info ready");
 setInterval(updateRange, 100);

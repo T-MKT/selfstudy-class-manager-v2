@@ -6,10 +6,3 @@ function toTimeFmt(x) {
 function isInRange(x, a, b) {
 	return (x >= a && x <= b);
 }
-
-
-function Ready() {
-	setInterval(() => {
-		if (class_end) return;
-	}, 1000);
-}

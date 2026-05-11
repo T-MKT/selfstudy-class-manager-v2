@@ -1,0 +1,86 @@
+/* 定位——大小 —— 颜色 —— 装饰 —— 子元素/文字 */
+
+
+#clock
+{
+	// transform: scale();
+	margin: 1.6rem 0.8rem;
+	height: 20rem;
+	padding: 0px 0px;
+	/* --clock-max: calc(0.6*(100vw - 80px)); */
+	/* max-width: var(--clock-max); */
+	/* max-height: var(--clock-max); */
+	background: #F6F7FA;
+}
+
+
+.clock-line
+{
+	width: 0.30rem;
+	aspect-ratio: 1/4;
+	background: #E3E5E9;
+	border-radius: 0.30rem;
+}
+
+
+.clock-lineBold
+{
+	width: 0.40rem;
+	aspect-ratio: 2/7;
+	background: #D4D9E1;
+	border-radius: 0.20rem;
+}
+
+
+.clock-line, .clock-lineBold
+{
+	position: absolute;
+	transform-origin: center top;
+}
+
+
+.clock-num
+{
+	position: absolute;
+	transform-origin: 50% 50%;
+	transform: translate(-50%, -50%);
+	font: 500 1.44rem/100% sans-serif;
+	width: 1.16em;
+	text-align: center;
+	font-variant-numeric: tabular-nums;
+	color: #090A0C;
+}
+
+
+#clock-hands>img
+{
+	position: absolute;
+}
+
+
+#clock-hands>img[src="./img/hand-h.svg"]
+{
+	transform-origin: center 89.476%;
+	top: 10rem;
+	left: 10rem;;
+	height: calc(0.8 *(20rem)/2);
+}
+
+
+#clock-hands>img[src="./img/hand-m.svg"]
+{
+	transform-origin: center 90.833%;
+	top: 10rem;
+	left: 10rem;
+	height: calc((.09167 + 0.9) * 10rem);
+}
+
+
+#clock-hands>img[src="./img/hand-s.svg"]
+{
+	transform-origin: center 89.476%;
+	top: 10rem;
+	left: 10rem;
+	height: calc((4/19 + 0.9) * 10rem);
+}
+

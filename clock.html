@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="utf-8"/>
+	<title>自习课</title>
+	<link href="./style/base.css" rel="stylesheet">
+	<link href="./style/style.css" rel="stylesheet">
+	<script src="./js/min.js"></script>
+
+</head>
+<body>
+	<main>
+		<div id="clocktime" class="mainpiece">
+			<span id="clock-nowtime" class="num"></span>
+			<div id="info-times">
+				<div id="info-starts" class="info-time">
+					<span>自习课已开始</span>
+					<div id="info-starts-container" class="info-times-container">
+						<span id="info-starts-m" class="num info-time-num">00</span>
+						<span style="width: 1rem">:</span>
+						<span id="info-starts-s" class="num info-time-num">00</span>
+					</div>
+					
+				</div>
+				<div id="info-ends" class="info-time">
+					<span>距离吃饭还有</span>
+					<div id="info-ends-container" class="info-times-container">
+						<span id="info-ends-m" class="num info-time-num">00</span>
+						<span style="width: 1rem">:</span>
+						<span id="info-ends-s" class="num info-time-num">00</span>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+
+		<div id="info" class="mainpiece">
+			<!-- <div id="info-times">
+				<div id="info-starts" class="info-time">
+					<span>自习课已开始</span>
+					<div id="info-starts-container" class="info-times-container">
+						<span id="info-starts-m" class="num info-time-num">00</span>
+						<span style="width: 1rem">:</span>
+						<span id="info-starts-s" class="num info-time-num">00</span>
+					</div>
+					
+				</div>
+				<div id="info-ends" class="info-time">
+					<span>距离吃饭还有</span>
+					<div id="info-ends-container" class="info-times-container">
+						<span id="info-ends-m" class="num info-time-num">00</span>
+						<span style="width: 1rem">:</span>
+						<span id="info-ends-s" class="num info-time-num">00</span>
+					</div>
+					
+				</div>
+			</div> -->
+			<div id="info-names">
+				<div id="names-title">
+					<h3>Name List</h3>
+					<button id="names-additem" class="names-title-kit" onclick="names_input();">
+						<img src="./img/icon/add.svg" alt="+"/>
+					</button>
+					<button id="names-clear" class="names-title-kit" onclick="names_clear()">
+						<img src="./img/icon/del.svg" alt="-"/>
+					</button>
+				</div>
+				<div id="names-list-area">
+					<div id="names-list">
+						<!-- <div class="names-piece">
+							<div class="names-piece-l">
+								<span class="names-piece-name">姓　名</span>
+								<span class="names-piece-times circle" times="1">1</span>
+							</div>
+							<div class="names-piece-r">
+								<button class="names-increase" class="names-title-kit">
+									<img src="./img/icon/add_circle.svg" alt="+"/>
+								</button>
+								<button class="names-decrease" class="names-title-kit">
+									<img src="./img/icon/remove_circle.svg" alt="-"/>
+								</button>
+							</div>
+							
+
+						</div> -->
+					</div>
+				</div>
+				<div id="names-add-input">
+					<input id="names-add-input-value" placeholder="名字" show="0" onkeydown="names_addPerson(event)"/>
+				</div>
+			</div>
+		</div>
+
+		<div id="dinner" class="dialog" show="0" style="display: none;">
+			<div id="dinner-content" class="dialog-content">
+				<div></div> <!-- brightness gradient in css -->
+				<div id="dinner-title">
+					<img src="./img/icon/eat.svg" alt="" id="dinner-title-icon">
+					<div id="dinner-title-text">
+						<center id="dinner-title-big">吃饭啦!</center>
+						<center id="dinner-title-small">快快充电，回来继续肝作业鸭~</center>
+					</div>
+				</div>
+				<div id="dinner-time">
+					<label id="dinner-time-label">排队剩余</label>
+					<div id="dinner-time-num" class="num">00:30</div>
+				</div>
+			</div>
+		</div>
+	</main>
+	<div id="scripts" style="display: none">
+		<script src="./js/data.js"></script>
+		<script src="./js/time.js"></script>
+		<script src="./js/clock.js"></script>
+		<script src="./js/name.js"></script>
+		<script src="./js/alarm.js"></script>
+	</div>
+</body>
+</html>

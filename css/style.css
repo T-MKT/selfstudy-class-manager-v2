@@ -37,7 +37,6 @@
    ============================================================ */
 .shadow {
   box-shadow: 0px 10px 10px 0px #FCFCFC, 0px -10px 10px 0px #EFF1F2, /* real shadow */ 0px 20px 20px 10px #ECEEF0, 0px -20px 20px 10px #FCFCFC, /* border */ inset 0px -50px 50px 0px #FCFCFC, inset 0px 50px 50px 0px #EFF1F2;
-  /* inner */
 }
 .circle {
   aspect-ratio: 1/1;
@@ -50,7 +49,7 @@
   background: #fff3;
   -webkit-backdrop-filter: blur(0.4rem);
   backdrop-filter: blur(0.4rem);
-  padding: 5rem 22.5%;
+  padding: clamp(3rem, 8vh, 6rem) 22.5%;
 }
 .dialog[show='0'] {
   opacity: 0;
@@ -66,36 +65,15 @@
 .mainpiece {
   background: #fff9;
   backdrop-filter: blur(1rem);
-  border-radius: 4rem;
+  border-radius: clamp(1.5rem, 3vw, 3rem);
   box-shadow: 0px 0px 30px 0px #3333, inset 0px 0px 45px 0px #fff3;
 }
 
 /* ============================================================
    5. 响应式布局
    ============================================================ */
-@media (min-width: 800px) {
-  :root {
-    font-size: calc(1vw + 1vh);
-  }
-  #names-list-area {
-    position: absolute;
-    top: 2rem;
-    bottom: 0;
-    left: 0;
-    right: 0;
-  }
-}
-@media (max-width: 799.99px) {
-  :root {
-    font-size: calc(2vw + 1vh);
-  }
-  #names-list-area {
-    position: relative;
-    top: 0;
-  }
-}
 body {
-  min-width: 400px;
+  min-width: 360px;
   min-height: 300px;
   background-image: url(../img/bg.jpg);
   background-repeat: no-repeat;
@@ -108,27 +86,44 @@ main {
   min-height: 100vh;
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-evenly;
+  justify-content: center;
+  gap: clamp(1rem, 3vw, 4rem);
+  padding: clamp(1rem, 3vh, 3rem) clamp(0.5rem, 2vw, 2rem);
 }
 .mainpiece {
-  width: 25rem;
-  margin: 4rem 0;
-  padding: 2rem 1rem;
+  width: clamp(300px, 40vw, 460px);
+  margin: clamp(1rem, 3vh, 3rem) 0;
+  padding: clamp(1rem, 2vw, 2.5rem) clamp(0.5rem, 1.5vw, 1.5rem);
+}
+
+@media (min-width: 800px) {
+  #names-list-area {
+    position: absolute;
+    top: clamp(1.5rem, 3vh, 2.5rem);
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+@media (max-width: 799px) {
+  #names-list-area {
+    position: relative;
+    top: 0;
+    min-height: 120px;
+  }
 }
 
 /* ============================================================
    6. 模拟表盘
    ============================================================ */
 #clock {
-  --pad: 0.4rem;
-  margin: 1.6rem 0.8rem;
-  height: 20rem;
-  width: calc(20rem + 2*var(--pad));
+  --pad: clamp(0.2rem, 0.5vw, 0.5rem);
+  margin: clamp(1rem, 2vw, 2rem) clamp(0.5rem, 1vw, 1rem);
+  height: clamp(260px, 35vw, 400px);
+  aspect-ratio: 1;
   padding: 0px var(--pad);
-  /* --clock-max: calc(0.6*(100vw - 80px)); */
-  /* max-width: var(--clock-max); */
-  /* max-height: var(--clock-max); */
   background: #F6F7FA;
+  border-radius: 1rem;
 }
 .clock-line {
   width: 0.3rem;
@@ -151,7 +146,7 @@ main {
   position: absolute;
   transform-origin: 50% 50%;
   transform: translate(-50%, -50%);
-  font: 500 1.44rem/100% sans-serif;
+  font: 500 clamp(0.9rem, 1.5vw, 1.3rem)/100% sans-serif;
   width: 1.16em;
   text-align: center;
   font-variant-numeric: tabular-nums;
@@ -162,21 +157,21 @@ main {
 }
 #clock-hands > img[src="./img/hand-h.svg"] {
   transform-origin: center 89.476%;
-  top: 10rem;
-  left: 10rem;
-  height: calc(0.8 * 20rem/2);
+  top: 50%;
+  left: 50%;
+  height: 40%;
 }
 #clock-hands > img[src="./img/hand-m.svg"] {
   transform-origin: center 90.833%;
-  top: 10rem;
-  left: 10rem;
-  height: calc((0.09167 + 0.9) * 10rem);
+  top: 50%;
+  left: 50%;
+  height: 50%;
 }
 #clock-hands > img[src="./img/hand-s.svg"] {
   transform-origin: center 89.476%;
-  top: 10rem;
-  left: 10rem;
-  height: calc((4/19 + 0.9) * 10rem);
+  top: 50%;
+  left: 50%;
+  height: 55%;
 }
 
 /* ============================================================
@@ -190,7 +185,7 @@ main {
 }
 #clocktime > #clock-nowtime {
   color: #000b;
-  font: 700 4rem/100% sans-serif;
+  font: 700 clamp(2.5rem, 5vw, 4rem)/100% sans-serif;
 }
 #info {
   display: flex;
@@ -202,22 +197,22 @@ main {
   justify-content: space-around;
 }
 #info-times > .info-time {
-  /* margin: 0 2rem; */
-  width: 12rem;
-  flex: 0 1 12rem;
+  width: clamp(140px, 20vw, 200px);
+  flex: 0 1 auto;
   text-align: center;
 }
 #info-times .info-times-container {
-  height: 3.2rem;
-  margin: 1rem 0rem;
+  height: clamp(2.5rem, 4vh, 3.5rem);
+  margin: clamp(0.4rem, 1vw, 1rem) 0;
   background: var(--color-bg2);
-  border-radius: 1.2rem;
+  border-radius: 0.8rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 0.2rem;
 }
 #info-times .info-time-num {
-  font: 700 1.6rem/100% sans-serif;
+  font: 700 clamp(1.2rem, 2vw, 1.8rem)/100% sans-serif;
 }
 #info-times #info-starts-m,
 #info-times #info-starts-s {
@@ -235,26 +230,26 @@ main {
   flex: 1;
 }
 #info-names > #names-title {
-  height: 2rem;
+  height: clamp(2rem, 3.5vh, 3rem);
 }
 #info-names > #names-title > * {
   position: absolute;
   vertical-align: middle;
 }
 #info-names > #names-title > h3:nth-child(1) {
-  left: 2rem;
-  font: 600 1.6rem sans-serif;
+  left: clamp(1rem, 2vw, 2.5rem);
+  font: 600 clamp(1rem, 2vw, 1.5rem) sans-serif;
   letter-spacing: 0.01rem;
   color: #000;
 }
 #info-names > #names-title > button:nth-child(2) {
-  right: 5.4rem;
+  right: clamp(4rem, 6vw, 6rem);
 }
 #info-names > #names-title > button:nth-child(3) {
-  right: 2.1rem;
+  right: clamp(1.2rem, 2vw, 2.5rem);
 }
 #info-names > #names-title > .names-title-kit {
-  height: 2rem;
+  height: clamp(1.5rem, 3vw, 2.5rem);
   aspect-ratio: 1/1;
   background: #0000;
   border-radius: 0.5rem;
@@ -267,43 +262,43 @@ main {
 }
 #info-names > #names-title > .names-title-kit img {
   margin: 0.2rem;
-  height: 1.6rem;
+  height: clamp(1.2rem, 2vw, 2rem);
   aspect-ratio: 1/1;
 }
 #info-names > #names-list-area {
-  padding: 1rem 0;
-  overflow: hidden scroll;
+  padding: clamp(0.5rem, 1.5vh, 1.5rem) 0;
+  overflow: hidden auto;
 }
 #info-names > #names-list-area > #names-list {
   height: 100%;
-  padding: 0 1rem;
+  padding: 0 clamp(0.5rem, 1vw, 1.5rem);
   display: flex;
   flex-direction: column-reverse;
   justify-content: flex-end;
 }
 #info-names > #names-list-area > #names-list > .names-piece {
   flex: 0 0 auto;
-  margin: 0 1rem 1rem 1rem;
-  height: 4rem;
+  margin: 0 clamp(0.5rem, 1vw, 1rem) clamp(0.5rem, 1vh, 1rem) clamp(0.5rem, 1vw, 1rem);
+  height: clamp(3rem, 5vh, 4.5rem);
   background: #FFF;
-  border-radius: 1.5rem;
+  border-radius: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 #info-names > #names-list-area > #names-list > .names-piece > .names-piece-l {
-  left: 2rem;
+  left: clamp(1rem, 2vw, 2.5rem);
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: clamp(0.5rem, 1vw, 1.2rem);
 }
 #info-names > #names-list-area > #names-list > .names-piece > .names-piece-l > .names-piece-name {
-  font: 600 1.8rem/100% sans-serif;
+  font: 600 clamp(1rem, 2vw, 1.6rem)/100% sans-serif;
 }
 #info-names > #names-list-area > #names-list > .names-piece > .names-piece-l > .names-piece-times {
-  height: 1.6rem;
+  height: clamp(1.2rem, 2vw, 1.8rem);
   text-align: center;
-  font: 700 1.2rem/1.542rem sans-serif;
+  font: 700 clamp(0.9rem, 1.5vw, 1.3rem)/1.542rem sans-serif;
   color: #FFF;
 }
 #info-names > #names-list-area > #names-list > .names-piece > .names-piece-l > .names-piece-times[times='1'] {
@@ -316,20 +311,20 @@ main {
   background: var(--color-red);
 }
 #info-names > #names-list-area > #names-list > .names-piece > .names-piece-r {
-  right: 2rem;
+  right: clamp(1rem, 2vw, 2.5rem);
   display: flex;
-  gap: 1rem;
+  gap: clamp(0.5rem, 1vw, 1.2rem);
 }
 #info-names > #names-list-area > #names-list > .names-piece > .names-piece-r > button {
-  width: 1.8rem;
-  height: 1.8rem;
+  width: clamp(1.5rem, 2.5vw, 2.2rem);
+  height: clamp(1.5rem, 2.5vw, 2.2rem);
   background: #0000;
 }
 #info-names > #names-list-area > #names-list > .names-piece > .names-piece-r > button img {
-  height: 1.8rem;
+  height: 100%;
 }
 #info-names > #names-list-area::-webkit-scrollbar {
-  width: 0.5rem;
+  width: clamp(0.3rem, 0.6vw, 0.6rem);
   background: #0000;
 }
 #info-names > #names-list-area::-webkit-scrollbar-thumb {
@@ -338,23 +333,23 @@ main {
 }
 #info-names > #names-add-input {
   position: absolute;
-  top: 2.5rem;
+  top: clamp(2rem, 3.5vh, 4rem);
   left: 0;
   right: 0;
   text-align: center;
 }
 #info-names > #names-add-input > input {
-  transition: 0.3s;
-  width: 16rem;
-  height: 3rem;
-  border-radius: 1rem;
-  box-shadow: 0 0.4rem 2rem 0 #0004;
-  font: 1.2em sans-serif;
-  padding: 1.2rem;
+  transition: opacity 0.3s, margin-top 0.3s;
+  width: clamp(200px, 60%, 400px);
+  height: clamp(2.5rem, 3.5vh, 3.5rem);
+  border-radius: 0.6rem;
+  box-shadow: 0 clamp(0.2rem, 0.5vh, 0.5rem) clamp(1rem, 2vw, 2rem) 0 #0004;
+  font: clamp(0.9rem, 1.5vw, 1.2rem) sans-serif;
+  padding: clamp(0.6rem, 1vw, 1rem);
 }
 #info-names > #names-add-input > input[show='0'] {
   opacity: 0;
-  margin-top: 0.5rem;
+  margin-top: clamp(0.3rem, 0.5vh, 0.5rem);
 }
 #info-names > #names-add-input > input[show='1'] {
   opacity: 1;
@@ -393,7 +388,7 @@ main {
   gap: 0 1rem;
 }
 #dinner-content > #dinner-title > #dinner-title-icon {
-  height: 10rem;
+  height: clamp(6rem, 12vw, 10rem);
   margin: -0.5rem -1.25rem;
 }
 #dinner-content > #dinner-title > #dinner-title-text > #dinner-title-big {
@@ -415,14 +410,14 @@ main {
   gap: 1rem;
 }
 #dinner-content > #dinner-time > label {
-  font: 600 2.4rem/1 sans-serif;
+  font: 600 clamp(1.6rem, 3vw, 2.4rem)/1 sans-serif;
   color: #fffc;
 }
 #dinner-content > #dinner-time > div {
   background: #fff;
-  padding: 0.5rem;
-  border-radius: 1rem;
-  font-size: 3rem;
+  padding: clamp(0.3rem, 0.8vh, 0.6rem);
+  border-radius: clamp(0.6rem, 1vw, 1rem);
+  font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 700;
   color: #FEA92A;
 }

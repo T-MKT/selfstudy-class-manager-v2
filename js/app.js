@@ -46,8 +46,10 @@ var App = (function() {
 			pad(Math.abs(until) % 60);
 	}
 
+	var clockHands = document.getElementById('clock-hands');
 	function updateAnalog() {
-		var hands = document.getElementById('clock-hands').children;
+		if (!clockHands) return;
+		var hands = clockHands.children;
 		var t = state.now.toLocaleTimeString().split(':').map(Number);
 		hands[0].style.transform =
 			'translate(-50%, -89.476%) rotate(' + (30 * t[0] + 0.5 * t[1] + 1 / 120 * t[2]) + 'deg)';

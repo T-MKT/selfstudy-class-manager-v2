@@ -1,5 +1,7 @@
 (function initClockFace() {
 	var clock = document.getElementById('clock');
+	if (!clock) return;
+
 	for (var min = 0; min < 60; ++min) {
 		clock.children[0].children[min].style.transform = 'rotate(' + 6 * min + 'deg)';
 	}

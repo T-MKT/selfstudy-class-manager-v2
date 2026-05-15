@@ -114,67 +114,6 @@ main {
 }
 
 /* ============================================================
-   6. 模拟表盘
-   ============================================================ */
-#clock {
-  --pad: clamp(0.2rem, 0.5vw, 0.5rem);
-  margin: clamp(1rem, 2vw, 2rem) clamp(0.5rem, 1vw, 1rem);
-  height: clamp(260px, 35vw, 400px);
-  aspect-ratio: 1;
-  padding: 0px var(--pad);
-  background: #F6F7FA;
-  border-radius: 1rem;
-}
-.clock-line {
-  width: 0.3rem;
-  aspect-ratio: 1/4;
-  background: #E3E5E9;
-  border-radius: 0.3rem;
-}
-.clock-lineBold {
-  width: 0.4rem;
-  aspect-ratio: 2/7;
-  background: #D4D9E1;
-  border-radius: 0.2rem;
-}
-.clock-line,
-.clock-lineBold {
-  position: absolute;
-  transform-origin: center top;
-}
-.clock-num {
-  position: absolute;
-  transform-origin: 50% 50%;
-  transform: translate(-50%, -50%);
-  font: 500 clamp(0.9rem, 1.5vw, 1.3rem)/100% sans-serif;
-  width: 1.16em;
-  text-align: center;
-  font-variant-numeric: tabular-nums;
-  color: #090A0C;
-}
-#clock-hands > img {
-  position: absolute;
-}
-#clock-hands > img[src="./img/hand-h.svg"] {
-  transform-origin: center 89.476%;
-  top: 50%;
-  left: 50%;
-  height: 40%;
-}
-#clock-hands > img[src="./img/hand-m.svg"] {
-  transform-origin: center 90.833%;
-  top: 50%;
-  left: 50%;
-  height: 50%;
-}
-#clock-hands > img[src="./img/hand-s.svg"] {
-  transform-origin: center 89.476%;
-  top: 50%;
-  left: 50%;
-  height: 55%;
-}
-
-/* ============================================================
    7. 时间信息区
    ============================================================ */
 #clocktime {

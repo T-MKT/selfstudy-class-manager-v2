@@ -46,19 +46,6 @@ var App = (function() {
 			pad(Math.abs(until) % 60);
 	}
 
-	var clockHands = document.getElementById('clock-hands');
-	function updateAnalog() {
-		if (!clockHands) return;
-		var hands = clockHands.children;
-		var t = state.now.toLocaleTimeString().split(':').map(Number);
-		hands[0].style.transform =
-			'translate(-50%, -89.476%) rotate(' + (30 * t[0] + 0.5 * t[1] + 1 / 120 * t[2]) + 'deg)';
-		hands[1].style.transform =
-			'translate(-50%, -90.833%) rotate(' + (6 * t[1] + 0.1 * t[2]) + 'deg)';
-		hands[2].style.transform =
-			'translate(-50%, -89.476%) rotate(' + (6 * t[2]) + 'deg)';
-	}
-
 	var lastSecond = -1;
 	function loop() {
 		state.now = new Date();
@@ -66,7 +53,6 @@ var App = (function() {
 		if (s !== lastSecond) {
 			lastSecond = s;
 			updateDigital();
-			updateAnalog();
 		}
 		requestAnimationFrame(loop);
 	}
